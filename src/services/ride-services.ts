@@ -23,7 +23,7 @@ export const bookTicket = async (
 ): Promise<Ticket> => {
   try {
     if (!_validatePIN(PIN)) throw new Error('Invalid PIN')
-    const response = await fetch(`${BASE_URL}tickets?api_key=${TOKEN}`, {
+    const response = await fetch(`${BASE_URL}tickets`, {
       method: 'POST',
       body: new URLSearchParams({
         pin: PIN,
