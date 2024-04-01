@@ -1,17 +1,12 @@
 import { Ride } from '../types/ride-types'
 import { Ticket } from '../types/ticket-types'
+import { httpService } from './http-services'
 
-const BASE_URL = 'https://fast-rider.herokuapp.com/api/v1/'
 const TOKEN = '433898df4a3e992b8411004109e4d574a90695e39e'
 
 export const getRides = async (): Promise<Ride[]> => {
   try {
-    const response = await fetch(`${BASE_URL}rides?token=${TOKEN}`)
-    if (!response.ok) {
-      throw new Error('Failed to fetch rides')
-    }
-    const ridesData = await response.json()
-    return ridesData
+    return await httpService.get(`rides?token=${TOKEN}`)
   } catch (err) {
     throw err
   }
@@ -23,22 +18,12 @@ export const bookTicket = async (
 ): Promise<Ticket> => {
   try {
     if (!_validatePIN(PIN)) throw new Error('Invalid PIN')
-    const response = await fetch(`${BASE_URL}tickets`, {
-      method: 'POST',
-      body: new URLSearchParams({
-        pin: PIN,
-        ride_id: rideId.toString(),
-        token: TOKEN,
-      }),
+    const requestBody = new URLSearchParams({
+      pin: PIN,
+      ride_id: rideId.toString(),
+      token: TOKEN,
     })
-
-    if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.message)
-    }
-
-    const ticketData = await response.json()
-    return ticketData
+    return await httpService.post('tickets', requestBody)
   } catch (err) {
     throw err
   }
