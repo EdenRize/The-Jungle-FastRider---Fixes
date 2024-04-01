@@ -48,8 +48,8 @@ const _validatePIN = (PIN: string) => {
 
   if (!_validatePINSyntax(splittedPIN)) return false
 
-  const firstASCII = getNumericGroupASCII(splittedPIN[1])
-  const secondASCII = getNumericGroupASCII(splittedPIN[2])
+  const firstASCII = _getNumericGroupASCII(splittedPIN[1])
+  const secondASCII = _getNumericGroupASCII(splittedPIN[2])
 
   if (splittedPIN[3][0] !== firstASCII || splittedPIN[3][1] !== secondASCII)
     return false
@@ -57,7 +57,7 @@ const _validatePIN = (PIN: string) => {
   return true
 }
 
-const getNumericGroupASCII = (group: string) => {
+const _getNumericGroupASCII = (group: string) => {
   const groupSum = group.split('').reduce((acc, currNumber, idx) => {
     const isEven = (idx + 1) % 2 === 0
     let calcNumber = isEven ? +currNumber * 2 : +currNumber
@@ -75,7 +75,7 @@ const getNumericGroupASCII = (group: string) => {
 const _validatePINSyntax = (splittedPIN: string[]) => {
   return (
     splittedPIN.length === 4 &&
-    splittedPIN[0].length === 2 &&
+    splittedPIN[0] === 'JN' &&
     splittedPIN[3].length === 2 &&
     splittedPIN[1].length === 4 &&
     splittedPIN[2].length === 4 &&
