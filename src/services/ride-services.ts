@@ -43,18 +43,15 @@ export const bookTicket = async (
     throw err
   }
 }
-const _validatePIN = (PIN: string) => {
-  const splittedPIN = PIN.split('-')
 
-  if (!_validatePINSyntax(splittedPIN)) return false
+const _validatePIN = (PIN: string) => {
+  if (!/^(JN)-(\d{4})-(\d{4})-([A-Z]{2})$/.test(PIN)) return false
+  const splittedPIN = PIN.split('-')
 
   const firstASCII = _getNumericGroupASCII(splittedPIN[1])
   const secondASCII = _getNumericGroupASCII(splittedPIN[2])
 
-  if (splittedPIN[3][0] !== firstASCII || splittedPIN[3][1] !== secondASCII)
-    return false
-
-  return true
+  return splittedPIN[3][0] === firstASCII && splittedPIN[3][1] == secondASCII
 }
 
 const _getNumericGroupASCII = (group: string) => {
@@ -70,18 +67,4 @@ const _getNumericGroupASCII = (group: string) => {
   }, 0)
 
   return String.fromCharCode((groupSum % 26) + 65)
-}
-
-const _validatePINSyntax = (splittedPIN: string[]) => {
-  return (
-    splittedPIN.length === 4 &&
-    splittedPIN[0] === 'JN' &&
-    splittedPIN[3].length === 2 &&
-    splittedPIN[1].length === 4 &&
-    splittedPIN[2].length === 4 &&
-    splittedPIN[0].match(/^[A-Z]{2}$/) &&
-    splittedPIN[3].match(/^[A-Z]{2}$/) &&
-    !isNaN(+splittedPIN[1]) &&
-    !isNaN(+splittedPIN[2])
-  )
 }
