@@ -35,17 +35,11 @@ async function ajax<T>(
   try {
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
-      throw new Error(
-        `Error ${method}ing to the backend, endpoint: ${endpoint}`
-      )
+      const error = await response.json()
+      throw new Error(error.message)
     }
     return await response.json()
   } catch (error) {
-    console.error(
-      `Had Issues ${method}ing to the backend, endpoint: ${endpoint}, with data: `,
-      data
-    )
-    console.error(error)
     throw error
   }
 }
