@@ -26,7 +26,7 @@ const InfoCubeList: FC<InfoCubeListProps> = ({
           color={cube.color}
           children={cube.children}
           isHoverable={isHoverable}
-          isSelected={cube.id === selectedId}
+          isSelected={cube?.id === selectedId}
         />
       ))}
     </section>
