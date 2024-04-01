@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import RidesIndex from './RidesIndex'
+import RidesIndex from '../cmps/indexes/RidesIndex'
 import { Ticket } from '../types/ticket-types'
-import TicketIndex from './TicketIndex'
+import TicketIndex from '../cmps/indexes/TicketIndex'
 import { FastRiderState } from '../types/ride-types'
 import { LocalStorageKeys } from '../services/util-services'
 

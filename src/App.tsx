@@ -1,5 +1,5 @@
 import './styles/main.scss'
-import FastRider from './views/FastRider'
+import FastRider from './pages/FastRider'
 
 const App = () => {
   return (

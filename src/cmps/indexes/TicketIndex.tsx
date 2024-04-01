@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { Ticket } from '../types/ticket-types'
-import InfoIconItem from '../cmps/info-icon/InfoIconItem'
-import InfoCube from '../cmps/info-cube/InfoCube'
-import TicketInfo from '../cmps/info-cube/TicketInfo'
-import confirmSvg from '../assets/icons/confirm.svg'
+import { Ticket } from '../../types/ticket-types'
+import InfoIconItem from '../info-icon/InfoIconItem'
+import InfoCube from '../info-cube/InfoCube'
+import TicketInfo from '../info-cube/TicketInfo'
+import confirmSvg from '../../assets/icons/confirm.svg'
 
 interface TicketIndexProps {
   ticket: Ticket
