@@ -1,0 +1,24 @@
+// Setup
+@import 'setup/typography';
+@import 'setup/variables';
+@import 'setup/mixins';
+
+// Basics
+@import 'basics/helpers';
+@import 'basics/layout';
+@import 'basics/base';
+
+//views
+@import 'views/rides-index';
+@import 'views/ticket-index';
+
+//cmps
+@import 'cmps/info-icon-item';
+@import 'cmps/info-icon-list';
+@import 'cmps/input-btn';
+@import 'cmps/info-cube-list';
+@import 'cmps/info-cube';
+@import 'cmps/ride-info';
+@import 'cmps/ticket-info';
+@import 'cmps/error-msg';
+@import 'cmps/loader';

@@ -1,0 +1,24 @@
+.info-icon-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block-end: 20px;
+
+  .info-icon-item {
+    font-size: 18px;
+    margin-block-end: 20px;
+    max-width: 70%;
+  }
+
+  @include for-desktop-layout {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-block: 30px 50px;
+
+    .info-icon-item {
+      font-size: 20px;
+      max-width: 22%;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.loader {
+  height: 300px;
+
+  img {
+    width: 250px;
+  }
+
+  @include for-desktop-layout {
+    height: 600px;
+
+    img {
+      width: 400px;
+    }
+  }
+}

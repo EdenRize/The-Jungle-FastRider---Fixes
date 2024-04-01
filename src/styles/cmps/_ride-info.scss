@@ -1,0 +1,28 @@
+.ride-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+
+  .zone-name {
+    text-align: end;
+    letter-spacing: 1.1px;
+    margin-block-start: 4px;
+  }
+
+  h2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+  .booking-info img {
+    width: 22px;
+    margin-inline-end: 3px;
+  }
+}

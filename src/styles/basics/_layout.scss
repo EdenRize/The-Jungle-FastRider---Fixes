@@ -1,0 +1,28 @@
+.page-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 40px;
+    width: 90%;
+
+    .page-title {
+      margin-block-end: 40px;
+    }
+  }
+
+  @include for-desktop-layout {
+    .page-content {
+      margin-block: 60px 20px;
+      width: 900px;
+
+      .page-title {
+        font-size: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+/* Breakpoint mixins */
+
+//mobile & tablet
+@mixin for-narrow-layout {
+  @media (max-width: $normal-breakpoint) {
+    @content;
+  }
+}
+
+//desktop
+@mixin for-desktop-layout {
+  @media (min-width: $normal-breakpoint) {
+    @content;
+  }
+}

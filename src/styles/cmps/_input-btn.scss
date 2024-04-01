@@ -1,0 +1,47 @@
+.input-btn {
+  width: 100%;
+  display: flex;
+
+  input {
+    all: unset;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 15px;
+    color: black;
+    box-sizing: border-box;
+  }
+
+  button {
+    all: unset;
+    color: $text-primary;
+    background-color: $secondary;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    transition: 0.2s;
+    cursor: pointer;
+
+    @include for-narrow-layout {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      opacity: 0;
+      pointer-events: none;
+
+      &.shown {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    @include for-desktop-layout {
+      padding-inline: 50px;
+
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+  }
+}

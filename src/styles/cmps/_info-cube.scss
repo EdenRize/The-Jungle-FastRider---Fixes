@@ -1,0 +1,32 @@
+.info-cube {
+  position: relative;
+  width: 100%;
+  background-color: $primary;
+  box-sizing: border-box;
+
+  .top-color {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 5px;
+    width: 100%;
+    transition: 0.2s;
+    z-index: 0;
+  }
+
+  @include for-desktop-layout {
+    &:hover .top-color.hoverable {
+      height: 100%;
+    }
+  }
+
+  &.selected .top-color,
+  .selected {
+    height: 100%;
+  }
+
+  .cube-content {
+    position: relative;
+    height: 100%;
+  }
+}

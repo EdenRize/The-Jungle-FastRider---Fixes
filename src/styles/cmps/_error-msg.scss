@@ -1,0 +1,24 @@
+.error-msg {
+  position: fixed;
+  top: -150px;
+  left: 50%;
+  translate: -50%;
+  background-color: rgb(231, 111, 104);
+  padding: 15px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  text-align: center;
+  transition: 0.2s;
+
+  &.shown {
+    top: 20px;
+  }
+
+  @include for-desktop-layout {
+    font-size: 22px;
+
+    &.shown {
+      top: 30px;
+    }
+  }
+}

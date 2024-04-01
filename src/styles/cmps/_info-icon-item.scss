@@ -1,0 +1,23 @@
+.info-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100px;
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary;
+    border-radius: 50%;
+    padding: 5px;
+    margin-block-end: 5px;
+    min-height: 37px;
+
+    img {
+      width: 37px;
+    }
+  }
+}

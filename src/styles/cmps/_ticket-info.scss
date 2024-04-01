@@ -1,0 +1,19 @@
+.ticket-info {
+  padding: 15px;
+  .ticket-ride-info,
+  .return-info {
+    margin-block-end: 15px;
+  }
+
+  .details-container .info {
+    font-size: 22px;
+  }
+
+  .ride-name {
+    max-width: 230px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
