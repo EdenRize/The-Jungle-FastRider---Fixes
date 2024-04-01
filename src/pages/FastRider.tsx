@@ -28,7 +28,9 @@ const FastRider = () => {
     if (currentTime >= returnTime) {
       localStorage.removeItem(LocalStorageKeys.TICKET)
       setTicket(FastRiderState.RIDES)
-    } else setTicket(ticket)
+    } else {
+      setTicket(ticket)
+    }
   }
 
   return (

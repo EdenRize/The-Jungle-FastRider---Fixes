@@ -90,7 +90,9 @@ const RidesIndex: FC<RidesIndexProps> = ({ setTicket }) => {
       setTicket(ticket)
     } catch (err: any) {
       if (err && typeof err.message === 'string') setErrorMsg(err.message)
-      else setErrorMsg(ErrorMsgs.GENERAL)
+      else {
+        setErrorMsg(ErrorMsgs.GENERAL)
+      }
     }
   }
 
