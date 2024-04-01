@@ -16,6 +16,8 @@ export enum FastRiderState {
   RIDES = 'rides',
 }
 
-export enum RidesErrorMsgs {
-  LOAD_ERROR = 'Cannot load rides, please try again later',
+export enum ErrorMsgs {
+  LOAD_RIDES = 'Cannot load rides, please try again later',
+  NO_SELECTED_RIDE = 'No selected ride',
+  GENERAL = 'An error occurred, please try again later',
 }

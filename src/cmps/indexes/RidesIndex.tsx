@@ -3,7 +3,7 @@ import { Ticket } from '../../types/ticket-types'
 import InfoCubeList, { infoCubeProp } from '../info-cube/InfoCubeList'
 import { InfoIconItemProps } from '../info-icon/InfoIconItem'
 import { bookTicket, getRides } from '../../services/ride-services'
-import { Ride, RidesErrorMsgs } from '../../types/ride-types'
+import { Ride, ErrorMsgs } from '../../types/ride-types'
 import RideInfo from '../info-cube/RideInfo'
 import { LocalStorageKeys } from '../../services/util-services'
 import InfoIconList from '../info-icon/InfoIconList'
@@ -63,7 +63,7 @@ const RidesIndex: FC<RidesIndexProps> = ({ setTicket }) => {
       const rides = await getRides()
       updateInfoCubes(rides)
     } catch (err) {
-      setErrorMsg(RidesErrorMsgs.LOAD_ERROR)
+      setErrorMsg(ErrorMsgs.LOAD_RIDES)
     }
   }
 
@@ -81,7 +81,7 @@ const RidesIndex: FC<RidesIndexProps> = ({ setTicket }) => {
       ev.preventDefault()
       localStorage.setItem('PIN', pin)
       if (!selectedRide) {
-        setErrorMsg('No selected ride')
+        setErrorMsg(ErrorMsgs.NO_SELECTED_RIDE)
         return
       }
 
@@ -90,7 +90,7 @@ const RidesIndex: FC<RidesIndexProps> = ({ setTicket }) => {
       setTicket(ticket)
     } catch (err: any) {
       if (err && typeof err.message === 'string') setErrorMsg(err.message)
-      else setErrorMsg(RidesErrorMsgs.LOAD_ERROR)
+      else setErrorMsg(ErrorMsgs.GENERAL)
     }
   }
 
