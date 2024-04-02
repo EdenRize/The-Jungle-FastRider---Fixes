@@ -15,7 +15,7 @@ import arrowSvg from '../../assets/icons/arrow.svg'
 import clockSvg from '../../assets/icons/clock.svg'
 
 interface RidesIndexProps {
-  setTicket: (ticket: Ticket | null) => void
+  setTicket: (ticket: Ticket) => void
 }
 
 const RidesIndex: FC<RidesIndexProps> = ({ setTicket }) => {

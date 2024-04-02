@@ -4,11 +4,13 @@ import { Ticket } from '../types/ticket-types'
 import TicketIndex from '../cmps/indexes/TicketIndex'
 import { FastRiderState } from '../types/ride-types'
 import { LocalStorageKeys } from '../services/util-services'
+import Loader from '../cmps/Loader'
 
 const FastRider = () => {
-  const [ticket, setTicket] = useState<null | Ticket | FastRiderState.RIDES>(
-    null
-  )
+  const [displayType, setDisplayType] = useState<
+    null | FastRiderState.TICKET | FastRiderState.RIDES
+  >(null)
+  const [ticket, setTicket] = useState<null | Ticket>(null)
 
   useEffect(() => {
     checkAndRemoveExpiredTicket()
@@ -17,7 +19,7 @@ const FastRider = () => {
   const checkAndRemoveExpiredTicket = () => {
     const ticketString = localStorage.getItem(LocalStorageKeys.TICKET)
     if (!ticketString) {
-      setTicket(FastRiderState.RIDES)
+      setDisplayType(FastRiderState.RIDES)
       return
     }
 
@@ -27,10 +29,15 @@ const FastRider = () => {
 
     if (currentTime >= returnTime) {
       localStorage.removeItem(LocalStorageKeys.TICKET)
-      setTicket(FastRiderState.RIDES)
+      setDisplayType(FastRiderState.RIDES)
     } else {
-      setTicket(ticket)
+      onSetTicket(ticket)
     }
+  }
+
+  const onSetTicket = (ticket: Ticket) => {
+    setTicket(ticket)
+    setDisplayType(FastRiderState.TICKET)
   }
 
   return (
@@ -38,14 +45,16 @@ const FastRider = () => {
       <div className="page-content">
         <h1 className="page-title">The Jungle™ FastRider Service</h1>
 
-        {ticket && (
+        {displayType ? (
           <>
-            {ticket === FastRiderState.RIDES ? (
-              <RidesIndex setTicket={setTicket} />
+            {displayType === FastRiderState.RIDES ? (
+              <RidesIndex setTicket={onSetTicket} />
             ) : (
-              <TicketIndex ticket={ticket} />
+              <>{ticket ? <TicketIndex ticket={ticket} /> : <Loader />}</>
             )}
           </>
+        ) : (
+          <Loader />
         )}
       </div>
     </section>

@@ -14,6 +14,7 @@ export interface Ride {
 
 export enum FastRiderState {
   RIDES = 'rides',
+  TICKET = 'ticket',
 }
 
 export enum ErrorMsgs {
